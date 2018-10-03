@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Главная</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"  aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <div *ngIf="authService.isLoggedIn()" class="navbar-nav mr-auto">
+      <a *ngFor="let linkAuth of linksAuth" class="nav-item nav-link" [routerLink]="linkAuth.path">{{linkAuth.name}}</a>
+    </div>
+    <div *ngIf="!authService.isLoggedIn()" class="navbar-nav mr-auto">
+      <a *ngFor="let linkNotAuth of linksNotAuth" class="nav-item nav-link active" href="#">{{linkNotAuth.name}}<span class="sr-only">(current)</span></a>
+    </div>
+    <span class="nav navbar-nav navbar-right">Version 1.3</span>
+  </div>
+</nav>
+
+
+
+<!--<nav *ngIf="authService.isLoggedIn()" mat-tab-nav-bar mat-stretch-tabs>-->
+  <!--<a mat-tab-link #navigationMenu-->
+     <!--*ngFor="let linkAuth of linksAuth"-->
+     <!--[routerLink]="linkAuth.path"-->
+     <!--id="{{linkAuth.path}}"-->
+     <!--routerLinkActive #rla="routerLinkActive"-->
+     <!--[active]="rla.isActive">-->
+    <!--{{linkAuth.name}}-->
+  <!--</a>-->
+<!--</nav>-->
+<!--<nav *ngIf="!authService.isLoggedIn()" mat-tab-nav-bar mat-stretch-tabs>-->
+  <!--<a mat-tab-link #navigationMenu-->
+     <!--*ngFor="let linkNotAuth of linksNotAuth"-->
+     <!--[routerLink]="linkNotAuth.path"-->
+     <!--id="{{linkNotAuth.path}}"-->
+     <!--routerLinkActive #rla="routerLinkActive"-->
+     <!--[active]="rla.isActive">-->
+    <!--{{linkNotAuth.name}}-->
+  <!--</a>-->
+<!--</nav>-->
+

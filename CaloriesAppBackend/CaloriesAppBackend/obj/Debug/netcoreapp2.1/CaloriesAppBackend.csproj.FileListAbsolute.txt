@@ -1,0 +1,14 @@
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.deps.json
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.runtimeconfig.json
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.runtimeconfig.dev.json
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.dll
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csproj.CoreCompileInputs.cache
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorAssemblyInfo.cache
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorAssemblyInfo.cs
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.AssemblyInfoInputs.cache
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.AssemblyInfo.cs
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorTargetAssemblyInfo.cache
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.pdb
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.dll
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.pdb
+D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csprojAssemblyReference.cache

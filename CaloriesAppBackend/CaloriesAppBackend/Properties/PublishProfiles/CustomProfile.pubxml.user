@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPc4/V1Xms0eDY4xE87qTxAAAAAACAAAAAAAQZgAAAAEAACAAAAC/8y3NjR49HEGuq09tjIactY5jY54iqN5zrex5jEXufQAAAAAOgAAAAAIAACAAAABjxhxW5SxIgrI/cwmqA0/gQhYdWaflCzp3f7tXCDvSQCAAAAB1GDb4dOPPytmv+F5c4rf5bWf7SZ5osScYpfNTEmFMXkAAAAC7pFBhk24ZFXGvvOnX0xjinup5RIrWUMWxMCHTowidK8BJUpb46wqnW8OrxW4ba7ndgpWEKm8OEA14flYwVaGy</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=SQL6006.site4now.net%3bInitial Catalog=DB_A412C4_calculator%3bUser Id=DB_A412C4_calculator_admin%3bPassword=1234qwer%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="CaloriesAppBackend.Models.CaloriesContext">
+      <Value>Data Source=SQL6006.site4now.net%3bInitial Catalog=DB_A412C4_calculator%3bUser Id=DB_A412C4_calculator_admin%3bPassword=1234qwer%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

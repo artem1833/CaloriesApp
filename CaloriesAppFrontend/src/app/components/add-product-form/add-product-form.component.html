@@ -1,0 +1,82 @@
+<h1 align="center">Добавление продукта</h1>
+<div class="col-md-6 offset-md-3">
+  <form [formGroup]="productForm">
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Название продукта" formControlName="name"
+               required
+               name="name">
+      </mat-form-field>
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">{{getErrorMessageName()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select placeholder="Единица измерения" formControlName="unitOfMeasure"
+                    required
+                    name="unitOfMeasure">
+          <mat-option *ngFor="let unitOfMeasure of unitsOfMeasure" [value]="unitOfMeasure.type">{{unitOfMeasure.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-error *ngIf="unitOfMeasure.invalid && (unitOfMeasure.dirty || unitOfMeasure.touched)">{{getErrorMessageUnitOfMeasure()}}</mat-error>
+    </div>
+
+    <div *ngIf="unitOfMeasure.value == 2" class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Вес" formControlName="weight"
+               required min=0
+               name="weight">
+      </mat-form-field>
+      <mat-error *ngIf="weight.invalid && (weight.dirty || weight.touched)">{{getErrorMessageWeight()}}</mat-error>
+    </div>
+
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Калорийность" formControlName="calorie"
+               required min=0
+               name="calorie">
+      </mat-form-field>
+      <mat-error *ngIf="calorie.invalid && (calorie.dirty || calorie.touched)">{{getErrorMessageCalorie()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Белки" formControlName="protein"
+               required min=0
+               name="protein">
+      </mat-form-field>
+      <mat-error *ngIf="protein.invalid && (protein.dirty || protein.touched)">{{getErrorMessageProtein()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Жиры" formControlName="fat"
+               required min=0
+               name="fat">
+      </mat-form-field>
+      <mat-error *ngIf="fat.invalid && (fat.dirty || fat.touched)">{{getErrorMessageFat()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Углеводы" formControlName="carbohydrate"
+               required min=0
+               name="carbohydrate">
+      </mat-form-field>
+      <mat-error *ngIf="carbohydrate.invalid && (carbohydrate.dirty || carbohydrate.touched)">{{getErrorMessageCarbohydrate()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Гликемический индекс" formControlName="glycemicIndex"
+               min=0
+               name="glycemicIndex">
+      </mat-form-field>
+      <mat-error *ngIf="glycemicIndex.invalid && (glycemicIndex.dirty || glycemicIndex.touched)">{{getErrorMessageGlycemicIndex()}}</mat-error>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!productForm.valid" (click)="addProduct(); productForm.reset();">Сохранить</button>
+  </form>
+</div>
+<app-spinner [spinnerVisibility]="spinnerStatus"></app-spinner>

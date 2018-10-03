@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="artemka1833-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\C\\Core\\CaloriesAppBackend\\CaloriesAppBackend\\obj\\Release\\netcoreapp2\.1\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="CaloriesAppBackend.Models.CaloriesContext" description="" value="Data Source=SQL6006.site4now.net;Initial Catalog=DB_A412C4_calculator;User Id=DB_A412C4_calculator_admin;Password=1234qwer;" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^D:\\C\\Core\\CaloriesAppBackend\\CaloriesAppBackend\\obj\\Release\\netcoreapp2\.1\\PubTmp\\EFSQLScripts\\CaloriesAppBackend\.Models\.CaloriesContext\.sql$" />
+  </parameter>
+</parameters>

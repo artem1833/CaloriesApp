@@ -1,0 +1,93 @@
+<h1 align="center">Ваши персональные данные</h1>
+<div class="col-md-6 offset-md-3">
+  <form [formGroup]="userForm">
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Рост" formControlName="height"
+               required min=100 max=250 name="height">
+      </mat-form-field>
+      <mat-error *ngIf="height.invalid && (height.dirty || height.touched)">{{getErrorMessageHeight()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Вес" formControlName="weight"
+               required min=20 max=250 name="weight">
+      </mat-form-field>
+      <mat-error *ngIf="weight.invalid && (weight.dirty || weight.touched)">{{getErrorMessageWeight()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select placeholder="Пол" formControlName="gender"
+                    required name="gender">
+          <mat-option *ngFor="let item of genders" [value]="item.type">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">{{getErrorMessageGender()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Возраст" formControlName="age"
+               required min=1 max=200 name="age">
+      </mat-form-field>
+      <mat-error *ngIf="age.invalid && (age.dirty || age.touched)">{{getErrorMessageAge()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select placeholder="Физическая активность" formControlName="physicalActivity"
+                    required name="physicalActivity">
+          <mat-option *ngFor="let item of physicalActivities" [value]="item.type">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-error *ngIf="physicalActivity.invalid && (physicalActivity.dirty || physicalActivity.touched)">{{getErrorMessageActivity()}}</mat-error>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-select placeholder="Цель" formControlName="purpose"
+                    required name="purpose">
+          <mat-option *ngFor="let item of purposes" [value]="item.type">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-error *ngIf="purpose.invalid && (purpose.dirty || purpose.touched)">{{getErrorMessagePurpose()}}</mat-error>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.valid" (click)="updateUserInfo()">Сохранить</button>
+
+  </form>
+
+  <div *ngIf="user.normOfCalories>0">
+    <table class="form">
+      <tr>
+        <th colspan="2" class="text-center">Энергозатраты:</th>
+      </tr>
+      <tr>
+        <td>Основной обмен</td>
+        <td>{{user.normOfCalories}} ККал</td>
+      </tr>
+      <tr>
+        <td>Общая потребность</td>
+        <td>{{user.purposeOfCalories}} ККал</td>
+      </tr>
+      <tr>
+        <th colspan="2" class="text-center">Потребность в питательных веществах:</th>
+      </tr>
+      <tr>
+        <td>Белки</td>
+        <td>{{user.normOfFats}} гр.</td>
+      </tr>
+      <tr>
+        <td>Жиры</td>
+        <td>{{user.normOfProteins}} гр.</td>
+      </tr>
+      <tr>
+        <td>Углеводы</td>
+        <td>{{user.normOfCarbohydrates}} гр.</td>
+      </tr>
+    </table>
+  </div>
+  <app-spinner [spinnerVisibility]="spinnerStatus"></app-spinner>
+</div>
+
