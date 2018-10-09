@@ -50,7 +50,7 @@ export class ProductService extends BaseService {
   }
 
   addProductUser (productUser: ProductUser): Observable<ProductUser> {
-    return this.post<NewProductModel>(ProductMethods.AddProductUser, productUser, httpOptions);
+    return this.post<ProductUser>(ProductMethods.AddProductUser, productUser, httpOptions);
   }
 
   deleteProductUser (productUser: ProductUser): Observable<ProductUser> {
