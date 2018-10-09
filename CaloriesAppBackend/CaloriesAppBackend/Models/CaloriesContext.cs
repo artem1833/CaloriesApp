@@ -11,8 +11,8 @@ namespace CaloriesAppBackend.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public virtual ICollection<Product> Products { get; set; }
-        public virtual ICollection<ProductUser> ProductUsers { get; set; }
+        public ICollection<Product> Products { get; set; }
+        public ICollection<ProductUser> ProductUsers { get; set; }
         public UserInfo UserInfo { get; set; }
 
         public ApplicationUser()
