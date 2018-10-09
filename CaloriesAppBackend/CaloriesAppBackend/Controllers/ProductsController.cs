@@ -38,14 +38,13 @@ namespace CaloriesAppBackend.Controllers
         [Route("add-product")]
         public async Task<OperationResult> PostProduct([FromBody] Product product)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            product.UserId = userId;
             if (!ModelState.IsValid)
             {
                 var allErrors = ModelState.Values.SelectMany(v => v.Errors);
                 return new OperationResult(false, string.Join(" ", allErrors.Select(x => x.ErrorMessage)));
             }
-
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            product.UserId = userId;
             await productService.AddProductAsync(product);
             return new OperationResult(true, "Продукт добавлен");
         }
@@ -94,12 +93,6 @@ namespace CaloriesAppBackend.Controllers
         [Route("delete-productUser/{id}")]
         public async Task<OperationResult> DeleteProductUser([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                var allErrors = ModelState.Values.SelectMany(v => v.Errors);
-                return new OperationResult(false, string.Join(" ", allErrors.Select(x => x.ErrorMessage)));
-            }
-
             var productUser = await productService.FindProductUserByIdAsync(id);
             if (productUser == null)
             {

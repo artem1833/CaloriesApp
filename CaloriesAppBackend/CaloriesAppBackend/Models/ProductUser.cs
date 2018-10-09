@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,14 +10,14 @@ namespace CaloriesAppBackend.Models
     {
         public int Id { get; set; }
 
-        public int ProductId { get; set; }
-
-        public virtual Product Product { get; set; }
-
+        [Required]
         public int Count { get; set; }
 
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        [Required]
+        public int ProductId { get; set; }
 
+        public Product Product { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

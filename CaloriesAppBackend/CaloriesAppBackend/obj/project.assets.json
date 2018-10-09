@@ -12281,11 +12281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C\\Core\\CaloriesAppBackend\\CaloriesAppBackend\\CaloriesAppBackend.csproj",
+      "projectUniqueName": "D:\\angular\\CaloriesApp\\CaloriesAppBackend\\CaloriesAppBackend\\CaloriesAppBackend.csproj",
       "projectName": "CaloriesAppBackend",
-      "projectPath": "D:\\C\\Core\\CaloriesAppBackend\\CaloriesAppBackend\\CaloriesAppBackend.csproj",
+      "projectPath": "D:\\angular\\CaloriesApp\\CaloriesAppBackend\\CaloriesAppBackend\\CaloriesAppBackend.csproj",
       "packagesPath": "C:\\Users\\Артёмка\\.nuget\\packages\\",
-      "outputPath": "D:\\C\\Core\\CaloriesAppBackend\\CaloriesAppBackend\\obj\\",
+      "outputPath": "D:\\angular\\CaloriesApp\\CaloriesAppBackend\\CaloriesAppBackend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -12,18 +12,29 @@ namespace CaloriesAppBackend.Models
         [Key]
         [ForeignKey("User")]
         public string Id { get; set; }
+
+        [Required]
         public int Height { get; set; }
+
+        [Required]
         public int Weight { get; set; }
+
+        [Required]
         public int Age { get; set; }
+
+        [Required]
         public int Gender { get; set; }
+
+        [Required]
         public int PhysicalActivity { get; set; }
+
+        [Required]
         public int Purpose { get; set; }
         public int NormOfCalories { get; set; }
         public int PurposeOfCalories { get; set; }
         public int NormOfProteins { get; set; }
         public int NormOfFats { get; set; }
         public int NormOfCarbohydrates { get; set; }
-        //public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }
