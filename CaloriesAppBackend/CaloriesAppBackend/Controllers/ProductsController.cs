@@ -51,20 +51,20 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpGet]
         [Route("productsUser")]
-        public async Task<OperationDataResult<IEnumerable<ProductUserInfo>>> GetProductUsers()
+        public async Task<OperationDataResult<IEnumerable<ProductUserViewModel>>> GetProductUsers()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var productsUser = await productService.GetProductsUserAsync(userId);
-            return new OperationDataResult<IEnumerable<ProductUserInfo>>(true, productsUser);
+            return new OperationDataResult<IEnumerable<ProductUserViewModel>>(true, productsUser);
         }
 
         [HttpGet]
         [Route("sumProductsUser")]
-        public async Task<OperationDataResult<ProductUserInfo>> GetSumProductUser()
+        public async Task<OperationDataResult<ProductUserViewModel>> GetSumProductUser()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var productsUser = await productService.GetSumProductsUserAsync(userId);
-            return new OperationDataResult<ProductUserInfo>(true, productsUser);
+            return new OperationDataResult<ProductUserViewModel>(true, productsUser);
         }
     
         [HttpPost]

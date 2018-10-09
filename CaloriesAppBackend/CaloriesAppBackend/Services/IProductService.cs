@@ -13,8 +13,8 @@ namespace CaloriesAppBackend.Services
         Task DeleteProductAsync(Product product);
         Task<Product> FindProductByIdAsync(int productId);
 
-        Task<IEnumerable<ProductUserInfo>> GetProductsUserAsync(string userId);
-        Task<ProductUserInfo> GetSumProductsUserAsync(string userId);
+        Task<IEnumerable<ProductUserViewModel>> GetProductsUserAsync(string userId);
+        Task<ProductUserViewModel> GetSumProductsUserAsync(string userId);
         Task AddProductUserAsync(ProductUser productUser, string userId);
         Task DeleteProductUserAsync(ProductUser productUser);
         Task<ProductUser> FindProductUserByIdAsync(int productUserId);

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Models
 {
-    public class ProductUserInfo
+    public class ProductUserViewModel
     {
         public int Id { get; set; }
         public int Count { get; set; }

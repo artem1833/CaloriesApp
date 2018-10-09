@@ -50,9 +50,9 @@ namespace CaloriesAppBackend.Services
             return await db.Products.FindAsync(productId);
         }
 
-        public async Task<IEnumerable<ProductUserInfo>> GetProductsUserAsync(string userId)
+        public async Task<IEnumerable<ProductUserViewModel>> GetProductsUserAsync(string userId)
         {
-            return await db.ProductUsers.Include(x => x.Product).Where(x => x.UserId.Equals(userId)).Select(x => new ProductUserInfo
+            return await db.ProductUsers.Include(x => x.Product).Where(x => x.UserId.Equals(userId)).Select(x => new ProductUserViewModel
             {
                 Id = x.Id,
                 Count = x.Count,
@@ -67,11 +67,11 @@ namespace CaloriesAppBackend.Services
             }).ToListAsync();
         }
 
-        public async Task<ProductUserInfo> GetSumProductsUserAsync(string userId)
+        public async Task<ProductUserViewModel> GetSumProductsUserAsync(string userId)
         {
             var products = await db.ProductUsers.Include(x => x.Product).Where(x => x.UserId.Equals(userId)).ToListAsync();
             
-            return new ProductUserInfo
+            return new ProductUserViewModel
             {
                 Count = products.Sum(x => CalculateWeight(x.Product.UnitOfMeasure, x.Product.Weight, x.Count)),
                 Calorie = products.Sum(x => CalculateCount(x.Product.UnitOfMeasure, x.Product.Weight, x.Count, x.Product.Calorie)),
