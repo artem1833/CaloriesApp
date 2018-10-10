@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Models
 {
-    public class ProductViewModel
+    public class ProductUserDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int Count { get; set; }
         public int Weight { get; set; }
+        public string Name { get; set; }
         public string UnitOfMeasure { get; set; }
         public int Calorie { get; set; }
         public int Protein { get; set; }

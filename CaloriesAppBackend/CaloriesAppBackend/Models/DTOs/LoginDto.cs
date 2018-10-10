@@ -3,10 +3,11 @@
 
 namespace CaloriesAppBackend.Models
 {
-    public class RegisterViewModel
+    public class LoginDto
     {
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
-        public string PasswordConfirmation { get; set; }
     }
 }

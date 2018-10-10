@@ -36,9 +36,9 @@ namespace CaloriesAppBackend
             services.AddCors();
 
             Mapper.Initialize(cfg => {
-                cfg.CreateMap<UserInfo, UserInfoViewModel>();
-                cfg.CreateMap<UserInfoViewModel, UserInfo>();
-                cfg.CreateMap<Product, ProductUserInfo>();
+                cfg.CreateMap<UserInfo, UserInfoDto>();
+                cfg.CreateMap<UserInfoDto, UserInfo>();
+                cfg.CreateMap<Product, ProductUserDto>();
             });
 
 

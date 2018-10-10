@@ -27,11 +27,11 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpGet]
         [Route("products")]
-        public async Task<OperationDataResult<IEnumerable<ProductViewModel>>> GetProducts()
+        public async Task<OperationDataResult<IEnumerable<ProductDto>>> GetProducts()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var products = await productService.GetProductsAsync(userId);
-            return new OperationDataResult<IEnumerable<ProductViewModel>>(true, products);
+            return new OperationDataResult<IEnumerable<ProductDto>>(true, products);
         }
 
         [HttpPost]
@@ -51,20 +51,20 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpGet]
         [Route("productsUser")]
-        public async Task<OperationDataResult<IEnumerable<ProductUserViewModel>>> GetProductUsers()
+        public async Task<OperationDataResult<IEnumerable<ProductUserDto>>> GetProductUsers()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var productsUser = await productService.GetProductsUserAsync(userId);
-            return new OperationDataResult<IEnumerable<ProductUserViewModel>>(true, productsUser);
+            return new OperationDataResult<IEnumerable<ProductUserDto>>(true, productsUser);
         }
 
         [HttpGet]
         [Route("sumProductsUser")]
-        public async Task<OperationDataResult<ProductUserViewModel>> GetSumProductUser()
+        public async Task<OperationDataResult<ProductUserDto>> GetSumProductUser()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var productsUser = await productService.GetSumProductsUserAsync(userId);
-            return new OperationDataResult<ProductUserViewModel>(true, productsUser);
+            return new OperationDataResult<ProductUserDto>(true, productsUser);
         }
     
         [HttpPost]
@@ -106,7 +106,7 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpGet]
         [Route("interpretation/{type}")]
-        public async Task<IEnumerable<InterpretationViewModel>> GetInterpretation(int type)
+        public async Task<IEnumerable<InterpretationDto>> GetInterpretation(int type)
         {
             return await productService.GetInterpretationAsync(type);
         }

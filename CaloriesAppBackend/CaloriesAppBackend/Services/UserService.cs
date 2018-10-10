@@ -17,14 +17,14 @@ namespace CaloriesAppBackend.Services
             db = context;
         }
 
-        public async Task<UserInfoViewModel> FindUserInfoAsync(string userId)
+        public async Task<UserInfoDto> FindUserInfoAsync(string userId)
         {
             var userInfo = await db.UserInfo.FirstOrDefaultAsync(x => x.Id.Equals(userId));
-            return Mapper.Map<UserInfoViewModel>(userInfo);
+            return Mapper.Map<UserInfoDto>(userInfo);
 
         }
 
-        public async Task AddOrUpdateUserInfoAsync(UserInfoViewModel model, string userId)
+        public async Task AddOrUpdateUserInfoAsync(UserInfoDto model, string userId)
         {
             var userInfo = await FindUserInfoAsync(userId);
 

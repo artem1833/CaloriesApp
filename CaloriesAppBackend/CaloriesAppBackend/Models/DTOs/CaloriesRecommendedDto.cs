@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Models
 {
-    public class CaloriesRecommended
+    public class CaloriesRecommendedDto
     {
         public int NormOfCalories { get; set; }
         public int PurposeOfCalories { get; set; }

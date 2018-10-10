@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Models
 {
-    public class UserInfoViewModel
+    public class UserInfoDto
     {
         public int Height { get; set; }
         public int Weight { get; set; }

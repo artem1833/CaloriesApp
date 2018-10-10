@@ -8,7 +8,7 @@ namespace CaloriesAppBackend.Services
 {
     public interface IUserService
     {
-        Task<UserInfoViewModel> FindUserInfoAsync(string userId);
-        Task AddOrUpdateUserInfoAsync(UserInfoViewModel model, string userId);
+        Task<UserInfoDto> FindUserInfoAsync(string userId);
+        Task AddOrUpdateUserInfoAsync(UserInfoDto model, string userId);
     }
 }

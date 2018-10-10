@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Models
 {
-    public class TokenResponseViewModel
+    public class InterpretationDto
     {
-        public string token { get; set; }
-        public int expiration { get; set; }
+        public string Name { get; set; }
+        public int Type { get; set; }
     }
 }

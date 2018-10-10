@@ -8,17 +8,17 @@ namespace CaloriesAppBackend.Services
 {
     public interface IProductService
     {
-        Task<IEnumerable<ProductViewModel>> GetProductsAsync(string userId);
+        Task<IEnumerable<ProductDto>> GetProductsAsync(string userId);
         Task AddProductAsync(Product product);
         Task DeleteProductAsync(Product product);
         Task<Product> FindProductByIdAsync(int productId);
 
-        Task<IEnumerable<ProductUserViewModel>> GetProductsUserAsync(string userId);
-        Task<ProductUserViewModel> GetSumProductsUserAsync(string userId);
+        Task<IEnumerable<ProductUserDto>> GetProductsUserAsync(string userId);
+        Task<ProductUserDto> GetSumProductsUserAsync(string userId);
         Task AddProductUserAsync(ProductUser productUser, string userId);
         Task DeleteProductUserAsync(ProductUser productUser);
         Task<ProductUser> FindProductUserByIdAsync(int productUserId);
 
-        Task<IEnumerable<InterpretationViewModel>> GetInterpretationAsync(int type);
+        Task<IEnumerable<InterpretationDto>> GetInterpretationAsync(int type);
     }
 }

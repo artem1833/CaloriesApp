@@ -43,11 +43,11 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<OperationDataResult<TokenResponseViewModel>> Login(LoginViewModel model)
+        public async Task<OperationDataResult<TokenResponseDto>> Login(LoginDto model)
         {
             if (!ModelState.IsValid)
             {
-                return new OperationDataResult<TokenResponseViewModel>(false, "Неверный логин или пароль");
+                return new OperationDataResult<TokenResponseDto>(false, "Неверный логин или пароль");
             }
 
             var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
@@ -55,17 +55,17 @@ namespace CaloriesAppBackend.Controllers
             if (result.Succeeded)
             {
                 var appUser = userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return new OperationDataResult<TokenResponseViewModel>(true, "Успешно авторизированы!", GenerateJwtToken(model.Email, appUser));
+                return new OperationDataResult<TokenResponseDto>(true, "Успешно авторизированы!", GenerateJwtToken(model.Email, appUser));
             }
-            return new OperationDataResult<TokenResponseViewModel>(false, "Неверный логин или пароль");
+            return new OperationDataResult<TokenResponseDto>(false, "Неверный логин или пароль");
         }
 
         [HttpPost]
         [Route("register")]
-        public async Task<OperationDataResult<TokenResponseViewModel>> Register(RegisterViewModel model)
+        public async Task<OperationDataResult<TokenResponseDto>> Register(RegisterDto model)
         {
             var user = await userManager.FindByEmailAsync(model.Email);
-            if (user != null) return new OperationDataResult<TokenResponseViewModel>(false,"Email уже существует");
+            if (user != null) return new OperationDataResult<TokenResponseDto>(false,"Email уже существует");
 
             user = new ApplicationUser
             {
@@ -77,15 +77,15 @@ namespace CaloriesAppBackend.Controllers
             if (result.Succeeded)
             {
                 await signInManager.SignInAsync(user, false);
-                return new OperationDataResult<TokenResponseViewModel>(true, "Успешно авторизированы!", GenerateJwtToken(model.Email, user));
+                return new OperationDataResult<TokenResponseDto>(true, "Успешно авторизированы!", GenerateJwtToken(model.Email, user));
             }
 
-            return new OperationDataResult<TokenResponseViewModel>(false, "Неверный логин или пароль");
+            return new OperationDataResult<TokenResponseDto>(false, "Неверный логин или пароль");
         }
 
         [HttpGet]
         [Route("user-info")]
-        public async Task<UserInfoViewModel> GetUserInfo()
+        public async Task<UserInfoDto> GetUserInfo()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var userInfo = await userService.FindUserInfoAsync(userId);
@@ -94,7 +94,7 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpPost]
         [Route("user-info")]
-        public async Task<object> UpdateUserInfo(UserInfoViewModel model)
+        public async Task<object> UpdateUserInfo(UserInfoDto model)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await userService.AddOrUpdateUserInfoAsync(model, userId);
@@ -103,16 +103,16 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpGet]
         [Route("user-calories-recommended")]
-        public async Task<OperationDataResult<CaloriesRecommended>> GetUserCaloriesRecommended()
+        public async Task<OperationDataResult<CaloriesRecommendedDto>> GetUserCaloriesRecommended()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var userInfo = await userService.FindUserInfoAsync(userId);
-            var model = Mapper.Map<CaloriesRecommended>(userInfo);
-            return new OperationDataResult<CaloriesRecommended>(true, model);
+            var model = Mapper.Map<CaloriesRecommendedDto>(userInfo);
+            return new OperationDataResult<CaloriesRecommendedDto>(true, model);
         }
 
         [NonAction]
-        private TokenResponseViewModel GenerateJwtToken(string email, ApplicationUser user)
+        private TokenResponseDto GenerateJwtToken(string email, ApplicationUser user)
         {
             var claims = new List<Claim>
             {
@@ -133,7 +133,7 @@ namespace CaloriesAppBackend.Controllers
             );
             var encodedToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return new TokenResponseViewModel()
+            return new TokenResponseDto()
             {
                 token = encodedToken,
                 expiration = Convert.ToInt32(configuration["Tokens:ExpireDays"])
