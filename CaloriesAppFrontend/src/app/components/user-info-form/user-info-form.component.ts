@@ -35,27 +35,27 @@ export class UserInfoFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getInterpretation(2);
-    this.getInterpretation(3);
-    this.getInterpretation(4);
+    this.getInterpretation('gender');
+    this.getInterpretation('purpose');
+    this.getInterpretation('activity');
     this.getUserInfo();
   }
 
 
-  getInterpretation(type: number) {
+  getInterpretation(type: string) {
     this.spinnerStatus = true;
     return this.productService.getInterpretation(type)
       .subscribe(
         data  => {
           switch (type) {
-            case 2:
-              this.genders = data;
+            case 'gender':
+              this.genders = data.model;
               break;
-            case 3:
-              this.purposes = data;
+            case 'purpose':
+              this.purposes = data.model;
               break;
-            case 4:
-              this.physicalActivities = data;
+            case 'activity':
+              this.physicalActivities = data.model;
               break;
           }
           this.spinnerStatus = false;

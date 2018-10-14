@@ -59,8 +59,8 @@ export class ProductService extends BaseService {
     return this.delete<ProductUser>(url, httpOptions);
   }
 
-  getInterpretation (type: number): Observable<Interpretation> {
+  getInterpretation (type: string): Observable<OperationDataResult<Interpretation>> {
     const url = `${ProductMethods.Interpretation}/${type}`;
-    return this.get<Interpretation>(url);
+    return this.get<OperationDataResult<Interpretation>>(url);
   }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using CaloriesAppBackend.Models.Entities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CaloriesAppBackend.Models
 {
@@ -17,6 +19,7 @@ namespace CaloriesAppBackend.Models
         public int Weight { get; set; }
 
         [Required]
+        [ForeignKey("UnitOfMeasureInterpretation")]
         public int UnitOfMeasure { get; set; }
 
         [Required]
@@ -35,6 +38,8 @@ namespace CaloriesAppBackend.Models
         public int GlycemicIndex { get; set; }
 
         public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }
+        public UnitOfMeasureInterpretation UnitOfMeasureInterpretation { get; set; }
+
     }
 }

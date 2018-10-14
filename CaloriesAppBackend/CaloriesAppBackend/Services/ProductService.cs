@@ -24,7 +24,7 @@ namespace CaloriesAppBackend.Services
                 Id = x.Id,
                 Name = x.Name,
                 Weight = x.Weight,
-                UnitOfMeasure = db.Interpretations.FirstOrDefault(y => y.Type == 1 && y.SubType == x.UnitOfMeasure).Name,
+                UnitOfMeasure = db.UnitOfMeasureInterpretations.FirstOrDefault(y => y.Type == x.UnitOfMeasure).Name,
                 Calorie = x.Calorie,
                 Protein = x.Protein,
                 Fat = x.Fat,
@@ -57,7 +57,7 @@ namespace CaloriesAppBackend.Services
                 Id = x.Id,
                 Count = x.Count,
                 Name = x.Product.Name,
-                UnitOfMeasure = db.Interpretations.FirstOrDefault(y => y.Type == 1 && y.SubType == x.Product.UnitOfMeasure).Name,
+                UnitOfMeasure = db.UnitOfMeasureInterpretations.FirstOrDefault(y => y.Type == x.Product.UnitOfMeasure).Name,
                 Weight = x.Product.Weight,
                 Calorie = CalculateCount(x.Product.UnitOfMeasure, x.Product.Weight, x.Count, x.Product.Calorie),
                 Protein = CalculateCount(x.Product.UnitOfMeasure, x.Product.Weight, x.Count, x.Product.Protein),
@@ -99,15 +99,13 @@ namespace CaloriesAppBackend.Services
             await db.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<InterpretationDto>> GetInterpretationAsync(int type)
+        public async Task<IEnumerable<InterpretationDto>> GetInterpretationAsync<T>() where T : Interpretation
         {
-            return await db.Interpretations.Where(x => x.Type == type)
-                .Select(x => new InterpretationDto
-                {
-                    Name = x.Name,
-                    Type = x.SubType
-                })
-                .ToListAsync();
+            return await db.Set<T>().Select(x => new InterpretationDto
+            {
+                Name = x.Name,
+                Type = x.Type
+            }).ToListAsync();
         }
 
         private int CalculateCount(int unitOfMeasure, int weight, int count, int value)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaloriesAppBackend.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,12 +24,15 @@ namespace CaloriesAppBackend.Models
         public int Age { get; set; }
 
         [Required]
+        [ForeignKey("GenderInterpretation")]
         public int Gender { get; set; }
 
         [Required]
+        [ForeignKey("PhysicalActivityInterpretation")]
         public int PhysicalActivity { get; set; }
 
         [Required]
+        [ForeignKey("PurposeInterpretation")]
         public int Purpose { get; set; }
         public int NormOfCalories { get; set; }
         public int PurposeOfCalories { get; set; }
@@ -36,5 +40,9 @@ namespace CaloriesAppBackend.Models
         public int NormOfFats { get; set; }
         public int NormOfCarbohydrates { get; set; }
         public ApplicationUser User { get; set; }
+        public GenderInterpretation GenderInterpretation { get; set; }
+        public PurposeInterpretation PurposeInterpretation { get; set; }
+        public PhysicalActivityInterpretation PhysicalActivityInterpretation { get; set; }
+
     }
 }

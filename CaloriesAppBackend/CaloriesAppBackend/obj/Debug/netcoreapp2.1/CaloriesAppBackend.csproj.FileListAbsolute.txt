@@ -12,7 +12,6 @@ D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\Calories
 D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.dll
 D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.pdb
 D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csprojAssemblyReference.cache
-D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csprojAssemblyReference.cache
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csproj.CoreCompileInputs.cache
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorAssemblyInfo.cache
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorAssemblyInfo.cs
@@ -20,3 +19,10 @@ D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreap
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.AssemblyInfo.cs
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.dll
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.pdb
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.deps.json
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.runtimeconfig.json
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.runtimeconfig.dev.json
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.dll
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.pdb
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorTargetAssemblyInfo.cache
+D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csprojAssemblyReference.cache

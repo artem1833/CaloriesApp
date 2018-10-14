@@ -19,6 +19,6 @@ namespace CaloriesAppBackend.Services
         Task DeleteProductUserAsync(ProductUser productUser);
         Task<ProductUser> FindProductUserByIdAsync(int productUserId);
 
-        Task<IEnumerable<InterpretationDto>> GetInterpretationAsync(int type);
+        Task<IEnumerable<InterpretationDto>> GetInterpretationAsync<T>() where T : Interpretation;
     }
 }

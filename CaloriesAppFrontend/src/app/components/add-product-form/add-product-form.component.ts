@@ -31,10 +31,10 @@ export class AddProductFormComponent implements OnInit {
 
   getInterpretation() {
     this.spinnerStatus = true;
-    return this.productService.getInterpretation(1)
+    return this.productService.getInterpretation('unitOfMeasure')
       .subscribe(
         data  => {
-          this.unitsOfMeasure = data;
+          this.unitsOfMeasure = data.model;
           this.spinnerStatus = false;
         }
       );

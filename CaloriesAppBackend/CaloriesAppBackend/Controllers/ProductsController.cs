@@ -9,6 +9,7 @@ using System.Security.Claims;
 using CaloriesAppBackend.Models.Api;
 using CaloriesAppBackend.Services;
 using Microsoft.AspNetCore.Identity;
+using CaloriesAppBackend.Models.Entities;
 
 namespace CaloriesAppBackend.Controllers
 {
@@ -106,9 +107,22 @@ namespace CaloriesAppBackend.Controllers
 
         [HttpGet]
         [Route("interpretation/{type}")]
-        public async Task<IEnumerable<InterpretationDto>> GetInterpretation(int type)
+        public async Task<OperationDataResult<IEnumerable<InterpretationDto>>> GetInterpretation(string type)
         {
-            return await productService.GetInterpretationAsync(type);
+            switch (type)
+            {
+                case "gender":
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<GenderInterpretation>());
+                case "purpose":
+                    var model = await productService.GetInterpretationAsync<PurposeInterpretation>();
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<PurposeInterpretation>());
+                case "activity":
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<PhysicalActivityInterpretation>());
+                case "unitOfMeasure":
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<UnitOfMeasureInterpretation>());
+                default:
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(false,"Error Interpretation");
+            }
         }
     }
 }

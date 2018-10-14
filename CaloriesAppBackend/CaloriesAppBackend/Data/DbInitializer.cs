@@ -1,4 +1,5 @@
 ﻿using CaloriesAppBackend.Models;
+using CaloriesAppBackend.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,54 @@ namespace CaloriesAppBackend.Data
                 return;   
             }
 
+            var genderInterpretations = new GenderInterpretation[]
+            {
+                new GenderInterpretation{Name = "Мужской", Type = 1},
+                new GenderInterpretation{Name = "Женский", Type = 2}
+            };
+
+            foreach (var genderInterpretation in genderInterpretations)
+            {
+                context.GenderInterpretations.Add(genderInterpretation);
+            }
+
+            var unitOfMeasureInterpretations = new UnitOfMeasureInterpretation[]
+            {
+                new UnitOfMeasureInterpretation{Name = "гр", Type = 1},
+                new UnitOfMeasureInterpretation{Name = "шт", Type = 2}
+            };
+
+            foreach (var unitOfMeasureInterpretation in unitOfMeasureInterpretations)
+            {
+                context.UnitOfMeasureInterpretations.Add(unitOfMeasureInterpretation);
+            }
+
+            var purposeInterpretations = new PurposeInterpretation[]
+            {
+                new PurposeInterpretation{Name = "Сохранить вес", Type = 1},
+                new PurposeInterpretation{Name = "Сбросить вес", Type = 2},
+                new PurposeInterpretation{Name = "Набрать вес", Type = 3}
+            };
+
+            foreach (var purposeInterpretation in purposeInterpretations)
+            {
+                context.PurposeInterpretations.Add(purposeInterpretation);
+            }
+
+            var physicalActivityInterpretations = new PhysicalActivityInterpretation[]
+            {
+                new PhysicalActivityInterpretation{Name = "Сидячий образ жизни", Type = 1},
+                new PhysicalActivityInterpretation{Name = "Умеренная активность", Type = 2},
+                new PhysicalActivityInterpretation{Name = "Средняя (занятия 3-5 раз в неделю)", Type = 3},
+                new PhysicalActivityInterpretation{Name = "Активные люди (интенсивные нагрузки)", Type = 4},
+                new PhysicalActivityInterpretation{Name = "Спортсмены (6-7 раз в неделю)", Type = 5}
+            };
+
+            foreach (var physicalActivityInterpretation in physicalActivityInterpretations)
+            {
+                context.PhysicalActivityInterpretations.Add(physicalActivityInterpretation);
+            }
+
             var products = new Product[]
             {
                 new Product{Name = "Творог", UnitOfMeasure = 2, Calorie = 200, Protein = 22, Fat = 1, Carbohydrate = 3, GlycemicIndex = 1, Weight = 100},
@@ -32,26 +81,6 @@ namespace CaloriesAppBackend.Data
             foreach (var product in products)
             {
                 context.Products.Add(product);
-            }
-
-            var interpretations = new Interpretation[]
-            {
-                new Interpretation{Name = "гр", Type = 1, SubType = 1},
-                new Interpretation{Name = "шт", Type = 1, SubType = 2},
-                new Interpretation{Name = "Мужской", Type = 2, SubType = 1},
-                new Interpretation{Name = "Женский", Type = 2, SubType = 2},
-                new Interpretation{Name = "Сохранить вес", Type = 3, SubType = 1},
-                new Interpretation{Name = "Сбросить вес", Type = 3, SubType = 2},
-                new Interpretation{Name = "Набрать вес", Type = 3, SubType = 3},
-                new Interpretation{Name = "Сидячий образ жизни", Type = 4, SubType = 1},
-                new Interpretation{Name = "Умеренная активность", Type = 4, SubType = 2},
-                new Interpretation{Name = "Средняя (занятия 3-5 раз в неделю)", Type = 4, SubType = 3},
-                new Interpretation{Name = "Активные люди (интенсивные нагрузки)", Type = 4, SubType = 4},
-                new Interpretation{Name = "Спортсмены (6-7 раз в неделю)", Type = 4, SubType = 5},
-            };
-            foreach (var interpretation in interpretations)
-            {
-                context.Interpretations.Add(interpretation);
             }
 
             context.SaveChanges();

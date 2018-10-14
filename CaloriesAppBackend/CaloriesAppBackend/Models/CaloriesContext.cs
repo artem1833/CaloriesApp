@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CaloriesAppBackend.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,11 @@ namespace CaloriesAppBackend.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductUser> ProductUsers { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
-        public DbSet<Interpretation> Interpretations { get; set; }
+        //public DbSet<Interpretation> Interpretations { get; set; }
+        public DbSet<GenderInterpretation> GenderInterpretations { get; set; }
+        public DbSet<PhysicalActivityInterpretation> PhysicalActivityInterpretations { get; set; }
+        public DbSet<PurposeInterpretation> PurposeInterpretations { get; set; }
+        public DbSet<UnitOfMeasureInterpretation> UnitOfMeasureInterpretations { get; set; }
+
     }
 }
