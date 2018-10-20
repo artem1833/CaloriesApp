@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CaloriesAppBackend.Interfaces;
 using CaloriesAppBackend.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,18 +11,16 @@ namespace CaloriesAppBackend.Services
 {
     public class UserService: IUserService
     {
-        private CaloriesContext db;
+        private readonly IRepository<UserInfo> userRepository;
 
-        public UserService(CaloriesContext context)
+        public UserService(IRepository<UserInfo> userRepository)
         {
-            db = context;
+            this.userRepository = userRepository;
         }
 
-        public async Task<UserInfoDto> FindUserInfoAsync(string userId)
+        public async Task<UserInfo> FindUserInfoAsync(string userId)
         {
-            var userInfo = await db.UserInfo.FirstOrDefaultAsync(x => x.Id.Equals(userId));
-            return Mapper.Map<UserInfoDto>(userInfo);
-
+            return await userRepository.GetByIdAsync(userId);
         }
 
         public async Task AddOrUpdateUserInfoAsync(UserInfoDto model, string userId)
@@ -32,7 +31,7 @@ namespace CaloriesAppBackend.Services
             {
                 var newUserInfo = Mapper.Map<UserInfo>(model);
                 newUserInfo.Id = userId;
-                await db.UserInfo.AddAsync(newUserInfo);
+                await userRepository.AddAsync(newUserInfo);
             }
             else
             {
@@ -42,11 +41,8 @@ namespace CaloriesAppBackend.Services
                 userInfo.Gender = model.Gender;
                 userInfo.PhysicalActivity = model.PhysicalActivity;
                 userInfo.Purpose = model.Purpose;
-                db.Entry(userInfo).State = EntityState.Modified;
+                await userRepository.UpdateAsync(userInfo);
             }
-            await db.SaveChangesAsync();
-
         }
-
     }
 }

@@ -10,6 +10,7 @@ using CaloriesAppBackend.Models.Api;
 using CaloriesAppBackend.Services;
 using Microsoft.AspNetCore.Identity;
 using CaloriesAppBackend.Models.Entities;
+using CaloriesAppBackend.Interfaces;
 
 namespace CaloriesAppBackend.Controllers
 {
@@ -18,12 +19,16 @@ namespace CaloriesAppBackend.Controllers
     public class ProductsController : ControllerBase
     {
         private IProductService productService;
+        private IProductUserService productUserService;
+        private IInterpretationRepository interpretationRepository;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public ProductsController(IProductService productService, UserManager<ApplicationUser> userManager)
+        public ProductsController(IProductService productService, IProductUserService productUserService, UserManager<ApplicationUser> userManager, IInterpretationRepository interpretationRepository)
         {
             this.productService = productService;
+            this.productUserService = productUserService;
             this.userManager = userManager;
+            this.interpretationRepository = interpretationRepository;
         }
 
         [HttpGet]
@@ -55,7 +60,7 @@ namespace CaloriesAppBackend.Controllers
         public async Task<OperationDataResult<IEnumerable<ProductUserDto>>> GetProductUsers()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var productsUser = await productService.GetProductsUserAsync(userId);
+            var productsUser = await productUserService.GetProductsUserAsync(userId);
             return new OperationDataResult<IEnumerable<ProductUserDto>>(true, productsUser);
         }
 
@@ -64,7 +69,7 @@ namespace CaloriesAppBackend.Controllers
         public async Task<OperationDataResult<ProductUserDto>> GetSumProductUser()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var productsUser = await productService.GetSumProductsUserAsync(userId);
+            var productsUser = await productUserService.GetSumProductsUserAsync(userId);
             return new OperationDataResult<ProductUserDto>(true, productsUser);
         }
     
@@ -84,7 +89,7 @@ namespace CaloriesAppBackend.Controllers
                 return new OperationResult(false, "Пользователь не найден. Авторизируйтесь!");
             }
 
-            await productService.AddProductUserAsync(productUser, userId);
+            await productUserService.AddProductUserAsync(productUser, userId);
 
             return new OperationResult(true, "Продукт добавлен");
 
@@ -94,13 +99,13 @@ namespace CaloriesAppBackend.Controllers
         [Route("delete-productUser/{id}")]
         public async Task<OperationResult> DeleteProductUser([FromRoute] int id)
         {
-            var productUser = await productService.FindProductUserByIdAsync(id);
+            var productUser = await productUserService.FindProductUserByIdAsync(id);
             if (productUser == null)
             {
                 return new OperationResult(false, "Продукт не найден");
             }
 
-            await productService.DeleteProductUserAsync(productUser);
+            await productUserService.DeleteProductUserAsync(productUser);
 
             return new OperationResult(true, "Продукт удален");
         }
@@ -112,14 +117,13 @@ namespace CaloriesAppBackend.Controllers
             switch (type)
             {
                 case "gender":
-                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<GenderInterpretation>());
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await interpretationRepository.GetInterpretationAsync<GenderInterpretation>());
                 case "purpose":
-                    var model = await productService.GetInterpretationAsync<PurposeInterpretation>();
-                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<PurposeInterpretation>());
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await interpretationRepository.GetInterpretationAsync<PurposeInterpretation>());
                 case "activity":
-                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<PhysicalActivityInterpretation>());
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await interpretationRepository.GetInterpretationAsync<PhysicalActivityInterpretation>());
                 case "unitOfMeasure":
-                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await productService.GetInterpretationAsync<UnitOfMeasureInterpretation>());
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await interpretationRepository.GetInterpretationAsync<UnitOfMeasureInterpretation>());
                 default:
                     return new OperationDataResult<IEnumerable<InterpretationDto>>(false,"Error Interpretation");
             }

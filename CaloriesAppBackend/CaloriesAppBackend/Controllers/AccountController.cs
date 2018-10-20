@@ -89,7 +89,7 @@ namespace CaloriesAppBackend.Controllers
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var userInfo = await userService.FindUserInfoAsync(userId);
-            return userInfo;
+            return Mapper.Map<UserInfoDto>(userInfo);
         }
 
         [HttpPost]

@@ -25,4 +25,3 @@ D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreap
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.dll
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\bin\Debug\netcoreapp2.1\CaloriesAppBackend.pdb
 D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.RazorTargetAssemblyInfo.cache
-D:\angular\CaloriesApp\CaloriesAppBackend\CaloriesAppBackend\obj\Debug\netcoreapp2.1\CaloriesAppBackend.csprojAssemblyReference.cache

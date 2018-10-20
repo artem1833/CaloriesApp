@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using CaloriesAppBackend.Data;
+using CaloriesAppBackend.Interfaces;
 using CaloriesAppBackend.Models;
 using CaloriesAppBackend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -45,7 +47,13 @@ namespace CaloriesAppBackend
             services.AddDbContext<CaloriesContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+            services.AddScoped<IInterpretationRepository, InterpretationRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductUserRepository, ProductUserRepository>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductUserService, ProductUserService>();
+        
             services.AddScoped<IUserService, UserService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(
