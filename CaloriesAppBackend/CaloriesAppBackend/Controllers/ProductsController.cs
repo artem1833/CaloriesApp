@@ -18,9 +18,9 @@ namespace CaloriesAppBackend.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private IProductService productService;
-        private IProductUserService productUserService;
-        private IInterpretationRepository interpretationRepository;
+        private readonly IProductService productService;
+        private readonly IProductUserService productUserService;
+        private readonly IInterpretationRepository interpretationRepository;
         private readonly UserManager<ApplicationUser> userManager;
 
         public ProductsController(IProductService productService, IProductUserService productUserService, UserManager<ApplicationUser> userManager, IInterpretationRepository interpretationRepository)

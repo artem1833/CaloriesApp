@@ -25,7 +25,7 @@ namespace CaloriesAppBackend.Controllers
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IConfiguration configuration;
-        private IUserService userService;
+        private readonly IUserService userService;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,

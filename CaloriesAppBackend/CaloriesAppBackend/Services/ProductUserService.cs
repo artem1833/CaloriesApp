@@ -11,8 +11,8 @@ namespace CaloriesAppBackend.Services
 {
     public class ProductUserService: IProductUserService
     {
-        private IProductUserRepository productUserRepository;
-        private IInterpretationRepository interpretationRepository;
+        private readonly IProductUserRepository productUserRepository;
+        private readonly IInterpretationRepository interpretationRepository;
 
         public ProductUserService(IProductUserRepository productUserRepository, IInterpretationRepository interpretationRepository)
         {
