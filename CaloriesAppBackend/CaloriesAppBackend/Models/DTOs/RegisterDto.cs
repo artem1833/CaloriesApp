@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-
-namespace CaloriesAppBackend.Models
+﻿namespace CaloriesAppBackend.Models
 {
     public class RegisterDto
     {

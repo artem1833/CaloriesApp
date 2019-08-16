@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CaloriesAppBackend.Models.Api
+﻿namespace CaloriesAppBackend.Models.Api
 {
     public class OperationDataResult<TModel> : OperationResult
     {

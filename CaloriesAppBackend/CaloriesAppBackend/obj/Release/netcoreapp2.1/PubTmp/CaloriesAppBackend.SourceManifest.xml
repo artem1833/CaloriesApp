@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Release\netcoreapp2.1\PubTmp\Out\" />
-  <dbfullsql path="D:\C\Core\CaloriesAppBackend\CaloriesAppBackend\obj\Release\netcoreapp2.1\PubTmp\EFSQLScripts\CaloriesAppBackend.Models.CaloriesContext.sql" />
-</sitemanifest>

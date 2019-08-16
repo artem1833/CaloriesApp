@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using CaloriesAppBackend.Models;
 using System.Security.Claims;
 using CaloriesAppBackend.Models.Api;
-using CaloriesAppBackend.Services;
 using Microsoft.AspNetCore.Identity;
 using CaloriesAppBackend.Models.Entities;
 using CaloriesAppBackend.Interfaces;

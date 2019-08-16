@@ -1,8 +1,8 @@
-﻿using CaloriesAppBackend.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using CaloriesAppBackend.Models;
 
-namespace CaloriesAppBackend.Services
+namespace CaloriesAppBackend.Interfaces
 {
     public interface IProductService
     {

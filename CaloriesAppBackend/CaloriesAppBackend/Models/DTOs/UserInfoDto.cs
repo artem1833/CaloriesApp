@@ -1,11 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CaloriesAppBackend.Models
+﻿namespace CaloriesAppBackend.Models
 {
     public class UserInfoDto
     {
