@@ -1,6 +1,6 @@
 ﻿namespace CaloriesAppBackend.Models.Entities
 {
-    public class PhysicalActivityInterpretation: Interpretation
+    public class PhysicalActivityInterpretation : Interpretation
     {
     }
 }

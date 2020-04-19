@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CaloriesAppBackend.Interfaces;
+﻿using CaloriesAppBackend.Interfaces;
 using CaloriesAppBackend.Models;
 using CaloriesAppBackend.Models.Entities;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Services
 {
-    public class ProductService: IProductService
+    public class ProductService : IProductService
     {
         private readonly IProductRepository productRepository;
         private readonly IInterpretationRepository interpretationRepository;

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Services
 {
-    public class UserService: IUserService
+    public class UserService : IUserService
     {
         private readonly IRepository<UserInfo> userRepository;
 

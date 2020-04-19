@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using CaloriesAppBackend.Models;
+﻿using CaloriesAppBackend.Models;
 using CaloriesAppBackend.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace CaloriesAppBackend.Data
 {

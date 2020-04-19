@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaloriesAppBackend.Services
 {
-    public class ProductUserService: IProductUserService
+    public class ProductUserService : IProductUserService
     {
         private readonly IProductUserRepository productUserRepository;
         private readonly IInterpretationRepository interpretationRepository;

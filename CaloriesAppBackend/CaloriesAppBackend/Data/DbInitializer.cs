@@ -12,7 +12,7 @@ namespace CaloriesAppBackend.Data
 
             if (context.Products.Any())
             {
-                return;   
+                return;
             }
 
             var genderInterpretations = new[]
@@ -81,7 +81,7 @@ namespace CaloriesAppBackend.Data
             }
 
             context.SaveChanges();
-            
+
         }
     }
 }

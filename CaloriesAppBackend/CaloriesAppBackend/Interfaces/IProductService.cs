@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using CaloriesAppBackend.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using CaloriesAppBackend.Models;
 
 namespace CaloriesAppBackend.Interfaces
 {

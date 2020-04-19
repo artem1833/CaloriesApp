@@ -1,10 +1,9 @@
-﻿using System;
+﻿using CaloriesAppBackend.Data;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using CaloriesAppBackend.Data;
-using CaloriesAppBackend.Models;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace CaloriesAppBackend
 {

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CaloriesAppBackend.Data;
 using CaloriesAppBackend.Models;
 using CaloriesAppBackend.Models.Api;
 using CaloriesAppBackend.Services;
@@ -13,7 +14,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using CaloriesAppBackend.Data;
 
 namespace CaloriesAppBackend.Controllers
 {

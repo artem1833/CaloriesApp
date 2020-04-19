@@ -1,4 +1,5 @@
-﻿using CaloriesAppBackend.Interfaces;
+﻿using CaloriesAppBackend.Data;
+using CaloriesAppBackend.Interfaces;
 using CaloriesAppBackend.Models;
 using CaloriesAppBackend.Models.Api;
 using CaloriesAppBackend.Models.Entities;
@@ -8,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using CaloriesAppBackend.Data;
 
 namespace CaloriesAppBackend.Controllers
 {
@@ -70,7 +70,7 @@ namespace CaloriesAppBackend.Controllers
             var productsUser = await productUserService.GetSumProductsUserAsync(userId);
             return new OperationDataResult<ProductUserDto>(true, productsUser);
         }
-    
+
         [HttpPost]
         [Route("add-productUser")]
         public async Task<OperationResult> PostProductUser([FromBody] ProductUser productUser)
@@ -123,7 +123,7 @@ namespace CaloriesAppBackend.Controllers
                 case "unitOfMeasure":
                     return new OperationDataResult<IEnumerable<InterpretationDto>>(true, await interpretationRepository.GetInterpretationAsync<UnitOfMeasureInterpretation>());
                 default:
-                    return new OperationDataResult<IEnumerable<InterpretationDto>>(false,"Error Interpretation");
+                    return new OperationDataResult<IEnumerable<InterpretationDto>>(false, "Error Interpretation");
             }
         }
     }
