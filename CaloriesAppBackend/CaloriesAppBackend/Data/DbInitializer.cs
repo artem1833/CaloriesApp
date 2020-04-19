@@ -15,7 +15,7 @@ namespace CaloriesAppBackend.Data
                 return;   
             }
 
-            var genderInterpretations = new GenderInterpretation[]
+            var genderInterpretations = new[]
             {
                 new GenderInterpretation{Name = "Мужской", Type = 1},
                 new GenderInterpretation{Name = "Женский", Type = 2}
@@ -26,7 +26,7 @@ namespace CaloriesAppBackend.Data
                 context.GenderInterpretations.Add(genderInterpretation);
             }
 
-            var unitOfMeasureInterpretations = new UnitOfMeasureInterpretation[]
+            var unitOfMeasureInterpretations = new[]
             {
                 new UnitOfMeasureInterpretation{Name = "гр", Type = 1},
                 new UnitOfMeasureInterpretation{Name = "шт", Type = 2}
@@ -37,7 +37,7 @@ namespace CaloriesAppBackend.Data
                 context.UnitOfMeasureInterpretations.Add(unitOfMeasureInterpretation);
             }
 
-            var purposeInterpretations = new PurposeInterpretation[]
+            var purposeInterpretations = new[]
             {
                 new PurposeInterpretation{Name = "Сохранить вес", Type = 1},
                 new PurposeInterpretation{Name = "Сбросить вес", Type = 2},
@@ -49,7 +49,7 @@ namespace CaloriesAppBackend.Data
                 context.PurposeInterpretations.Add(purposeInterpretation);
             }
 
-            var physicalActivityInterpretations = new PhysicalActivityInterpretation[]
+            var physicalActivityInterpretations = new[]
             {
                 new PhysicalActivityInterpretation{Name = "Сидячий образ жизни", Type = 1},
                 new PhysicalActivityInterpretation{Name = "Умеренная активность", Type = 2},
@@ -63,7 +63,7 @@ namespace CaloriesAppBackend.Data
                 context.PhysicalActivityInterpretations.Add(physicalActivityInterpretation);
             }
 
-            var products = new Product[]
+            var products = new[]
             {
                 new Product{Name = "Творог", UnitOfMeasure = 2, Calorie = 200, Protein = 22, Fat = 1, Carbohydrate = 3, GlycemicIndex = 1, Weight = 100},
                 new Product{Name = "Хлеб из цельной пшеницы	", UnitOfMeasure = 1, Calorie = 247, Protein = 13, Fat = 3, Carbohydrate = 35, GlycemicIndex = 14 , Weight = 100},

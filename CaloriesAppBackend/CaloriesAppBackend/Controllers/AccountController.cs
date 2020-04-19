@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using System.Security.Claims;
+﻿using AutoMapper;
 using CaloriesAppBackend.Models;
-using AutoMapper;
 using CaloriesAppBackend.Models.Api;
 using CaloriesAppBackend.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
+using CaloriesAppBackend.Data;
 
 namespace CaloriesAppBackend.Controllers
 {
@@ -53,7 +54,7 @@ namespace CaloriesAppBackend.Controllers
             if (result.Succeeded)
             {
                 var appUser = userManager.Users.SingleOrDefault(r => r.Email == model.Email);
-                return new OperationDataResult<TokenResponseDto>(true, "Успешно авторизированы!", GenerateJwtToken(model.Email, appUser));
+                return new OperationDataResult<TokenResponseDto>(true, "Успешно авторизированы!", GenerateJwtToken(appUser));
             }
             return new OperationDataResult<TokenResponseDto>(false, "Неверный логин или пароль");
         }
@@ -63,7 +64,7 @@ namespace CaloriesAppBackend.Controllers
         public async Task<OperationDataResult<TokenResponseDto>> Register(RegisterDto model)
         {
             var user = await userManager.FindByEmailAsync(model.Email);
-            if (user != null) return new OperationDataResult<TokenResponseDto>(false,"Email уже существует");
+            if (user != null) return new OperationDataResult<TokenResponseDto>(false, "Email уже существует");
 
             user = new ApplicationUser
             {
@@ -75,7 +76,7 @@ namespace CaloriesAppBackend.Controllers
             if (result.Succeeded)
             {
                 await signInManager.SignInAsync(user, false);
-                return new OperationDataResult<TokenResponseDto>(true, "Успешно авторизированы!", GenerateJwtToken(model.Email, user));
+                return new OperationDataResult<TokenResponseDto>(true, "Успешно авторизированы!", GenerateJwtToken(user));
             }
 
             return new OperationDataResult<TokenResponseDto>(false, "Неверный логин или пароль");
@@ -96,7 +97,7 @@ namespace CaloriesAppBackend.Controllers
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await userService.AddOrUpdateUserInfoAsync(model, userId);
-            return new OperationResult(true,"Изменения сохранены");
+            return new OperationResult(true, "Изменения сохранены");
         }
 
         [HttpGet]
@@ -110,7 +111,7 @@ namespace CaloriesAppBackend.Controllers
         }
 
         [NonAction]
-        private TokenResponseDto GenerateJwtToken(string email, ApplicationUser user)
+        private TokenResponseDto GenerateJwtToken(ApplicationUser user)
         {
             var claims = new List<Claim>
             {

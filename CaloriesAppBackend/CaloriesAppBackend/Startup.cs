@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using AutoMapper;
+﻿using AutoMapper;
 using CaloriesAppBackend.Data;
 using CaloriesAppBackend.Interfaces;
 using CaloriesAppBackend.Models;
@@ -9,11 +7,13 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Text;
 
 namespace CaloriesAppBackend
 {
@@ -36,7 +36,6 @@ namespace CaloriesAppBackend
                 cfg.CreateMap<UserInfoDto, UserInfo>();
                 cfg.CreateMap<Product, ProductUserDto>();
             });
-
 
             services.AddDbContext<CaloriesContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -84,11 +83,11 @@ namespace CaloriesAppBackend
 
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddControllers();
         }
 
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, CaloriesContext dbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, CaloriesContext dbContext)
         {
             if (env.IsDevelopment())
             {
@@ -106,10 +105,12 @@ namespace CaloriesAppBackend
                 .AllowAnyHeader()
                 .AllowCredentials());
 
-            app.UseMvc();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             dbContext.Database.EnsureCreated();
-
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
+using CaloriesAppBackend.Models;
 using CaloriesAppBackend.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace CaloriesAppBackend.Models
+namespace CaloriesAppBackend.Data
 {
     public class ApplicationUser : IdentityUser
     {
@@ -18,7 +18,6 @@ namespace CaloriesAppBackend.Models
             Products = new List<Product>();
             ProductUsers = new List<ProductUser>();
         }
-
     }
 
 
@@ -31,7 +30,6 @@ namespace CaloriesAppBackend.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductUser> ProductUsers { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
-        //public DbSet<Interpretation> Interpretations { get; set; }
         public DbSet<GenderInterpretation> GenderInterpretations { get; set; }
         public DbSet<PhysicalActivityInterpretation> PhysicalActivityInterpretations { get; set; }
         public DbSet<PurposeInterpretation> PurposeInterpretations { get; set; }

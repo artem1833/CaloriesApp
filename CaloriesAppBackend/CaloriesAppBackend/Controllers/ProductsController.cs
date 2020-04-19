@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using CaloriesAppBackend.Interfaces;
 using CaloriesAppBackend.Models;
-using System.Security.Claims;
 using CaloriesAppBackend.Models.Api;
-using Microsoft.AspNetCore.Identity;
 using CaloriesAppBackend.Models.Entities;
-using CaloriesAppBackend.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using CaloriesAppBackend.Data;
 
 namespace CaloriesAppBackend.Controllers
 {

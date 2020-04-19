@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CaloriesAppBackend.Models.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
+using CaloriesAppBackend.Data;
 
 namespace CaloriesAppBackend.Models
 {

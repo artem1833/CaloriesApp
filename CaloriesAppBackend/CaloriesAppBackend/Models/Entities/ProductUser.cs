@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CaloriesAppBackend.Data;
 
 namespace CaloriesAppBackend.Models
 {
